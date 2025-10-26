@@ -1,20 +1,22 @@
-# Investor Persona System
+# Multi-Persona AI System
 
-AI-powered conversational assistants for professional investors, featuring specialized personas for VC Partners, Angel Investors, Hedge Fund Analysts, and PE Associates.
+A generic, extensible framework for building AI conversational assistants with specialized personas across any domain.
 
 ## 🎯 Overview
 
-This is a greenfield project to build a multi-persona AI chat system specifically designed for sophisticated investors. Each persona embodies deep domain expertise, investment frameworks, and communication styles tailored to different investment strategies.
+This is a **reusable infrastructure** for creating multi-persona AI chat systems. The framework is domain-agnostic - use it to build specialized assistants for investors, coaches, technical advisors, therapists, or any other domain.
 
-**Status:** Not Started (Build templates ready)
+**Repository Structure:**
+- **`main` branch**: Generic infrastructure and build framework (you are here)
+- **`investor-personas` branch**: Example implementation with 4 investor personas (VC, Angel, Hedge Fund, PE)
+- **Create your own branch**: Use the template to build personas for your domain
 
-## ✨ Key Features
+## ✨ Core Features
 
-- **4 Specialized Investor Personas**
-  - VC Partner (early-stage, Series A/B focus)
-  - Angel Investor (seed/pre-seed, founder-focused)
-  - Hedge Fund Analyst (public markets, quantitative)
-  - PE Associate (buyouts, operational improvement)
+- **Multi-Persona Support**
+  - Switch between specialized personas in one conversation platform
+  - Each persona has unique expertise, frameworks, and communication styles
+  - Easily extendable to any number of personas
 
 - **Long-Term Memory (RAG)**
   - Semantic search using pgvector
@@ -50,7 +52,83 @@ This is a greenfield project to build a multi-persona AI chat system specificall
 - **Medium-term**: PostgreSQL (90-day conversation history)
 - **Long-term**: pgvector (semantic RAG, indefinite)
 
-## 📋 Build Plan
+## 🌿 Branch Structure
+
+### **`main`** (Generic Infrastructure)
+The foundation that works for any persona type:
+- Generic build system and templates
+- Infrastructure code (auth, database, API)
+- Persona template and creation guide
+- Deployment configuration
+
+### **`investor-personas`** (Example Implementation)
+A complete example with 4 investor personas:
+- VC Partner (early-stage investing)
+- Angel Investor (seed/pre-seed)
+- Hedge Fund Analyst (public markets)
+- PE Associate (buyouts)
+
+**See:** [investor-personas branch](https://github.com/petercholford-ship-it/investor-persona-system/tree/investor-personas)
+
+### **Create Your Own Branch**
+Want to build coach personas? Technical advisor personas? Do this:
+
+```bash
+# Clone the repo
+git clone https://github.com/petercholford-ship-it/investor-persona-system.git
+
+# Create your domain branch
+git checkout -b coach-personas  # or technical-personas, therapist-personas, etc.
+
+# Use the persona template
+cp templates/PERSONA_TEMPLATE.md personas/my-first-persona.md
+
+# Define your personas following the template
+# Build using the generic infrastructure on main
+```
+
+## 📖 Documentation
+
+- **[Persona Template](templates/PERSONA_TEMPLATE.md)** - How to define any persona type
+- **[Build Guide](docs/persona-system-build-guide.md)** - Complete 14-day implementation guide
+- **[Phase Trackers](templates/)** - Progress tracking templates
+
+**Example Implementation:**
+- See [`investor-personas`](https://github.com/petercholford-ship-it/investor-persona-system/tree/investor-personas) branch for a complete example
+
+## 🚀 Getting Started
+
+### Option 1: Use Existing Persona Set (e.g., Investor Personas)
+
+```bash
+# Clone and switch to example branch
+git clone https://github.com/petercholford-ship-it/investor-persona-system.git
+cd investor-persona-system
+git checkout investor-personas
+
+# Follow the build guide in that branch
+npm install
+# ... (see investor-personas README)
+```
+
+### Option 2: Build Your Own Persona Set
+
+```bash
+# Clone the generic infrastructure
+git clone https://github.com/petercholford-ship-it/investor-persona-system.git
+cd investor-persona-system
+
+# Stay on main branch (or create your own)
+git checkout -b my-domain-personas
+
+# Define your personas using the template
+cp templates/PERSONA_TEMPLATE.md personas/persona-1.md
+
+# Edit personas/persona-1.md with your persona definition
+# Follow the build guide to implement
+```
+
+## 📋 Build Plan (14 Days)
 
 This project follows a **14-day build plan** designed for implementation via Claude Code assistance:
 
@@ -58,7 +136,7 @@ This project follows a **14-day build plan** designed for implementation via Cla
 - Day 1: Project setup (Next.js, TypeScript, Tailwind)
 - Day 2: Supabase database schema with pgvector
 - Day 3: Authentication (Supabase Auth)
-- Day 4: Investor persona configuration
+- Day 4: Persona configuration (using your defined personas)
 
 ### Phase 2: Core Chat (Week 2)
 - Day 5: Chat interface with streaming
@@ -76,48 +154,7 @@ This project follows a **14-day build plan** designed for implementation via Cla
 - Day 13: Mobile responsive and accessibility
 - Day 14: Documentation and deployment
 
-**Detailed Build Guide:** [docs/investor-persona-build-guide.md](docs/investor-persona-build-guide.md)
-
-## 📖 Documentation
-
-- **[Build Guide](docs/investor-persona-build-guide.md)** - Complete 14-day implementation guide
-- **[Phase 1 Status](templates/PHASE_1_STATUS.md)** - Foundation tracking
-- **[Phase 2 Status](templates/PHASE_2_STATUS.md)** - Core Chat tracking
-- **[Phase 3 Status](templates/PHASE_3_STATUS.md)** - Usage & Permissions tracking
-- **[Phase 4 Status](templates/PHASE_4_STATUS.md)** - Polish & Deploy tracking
-- **[Current Phase](templates/CURRENT_PHASE.md)** - Overall progress tracker
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- Git
-- GitHub account
-- Anthropic API key ([get one here](https://console.anthropic.com/))
-- Supabase account ([sign up](https://supabase.com/))
-- Upstash account ([sign up](https://upstash.com/))
-- OpenAI API key ([get one here](https://platform.openai.com/))
-
-### Quick Start (When Build Begins)
-
-```bash
-# Clone repository
-git clone https://github.com/YOUR_USERNAME/investor-persona-system.git
-cd investor-persona-system
-
-# Install dependencies
-npm install
-
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your API keys
-
-# Run development server
-npm run dev
-
-# Open http://localhost:3000
-```
+**Detailed Build Guide:** [docs/persona-system-build-guide.md](docs/persona-system-build-guide.md)
 
 ## 🔧 Environment Variables
 
@@ -147,10 +184,10 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 This project is designed for **automated building via Claude Code**:
 
-1. **Review the Build Guide**: Read [docs/investor-persona-build-guide.md](docs/investor-persona-build-guide.md)
+1. **Define Your Personas**: Use [templates/PERSONA_TEMPLATE.md](templates/PERSONA_TEMPLATE.md) to create 2-4 personas for your domain
 
 2. **Tell Claude Code to begin**:
-   > "Let's start building the Investor Persona System. Begin with Phase 1, Day 1."
+   > "Let's start building the [Your Domain] Persona System. I've defined 3 personas in the personas/ folder. Begin with Phase 1, Day 1."
 
 3. **Claude Code will**:
    - Write all code following the build guide
@@ -159,9 +196,9 @@ This project is designed for **automated building via Claude Code**:
    - Implement features step-by-step
 
 4. **Your role**:
-   - Review and test each day's work
+   - Define personas (domain expertise required)
    - Add API keys to `.env.local`
-   - Run verification checklists
+   - Review and test each day's work
    - Provide feedback on UX/design
 
 5. **Track progress** in `templates/PHASE_*_STATUS.md` files
@@ -174,40 +211,67 @@ This project is designed for **automated building via Claude Code**:
 
 ### Primary Cost Driver: Claude API
 - 80-90% of total operating costs
-- ~$0.20-0.50 per investor conversation
-- See [Build Guide](docs/investor-persona-build-guide.md#cost-breakdown--drivers) for detailed breakdown
+- ~$0.20-0.50 per conversation (varies by persona complexity)
+- See [Build Guide](docs/persona-system-build-guide.md) for detailed breakdown
 
-## 🎨 Features Roadmap
+## 🎨 Example Use Cases
 
-### Phase 1-4 (MVP)
-- ✅ Core chat with 4 investor personas
-- ✅ RAG-based long-term memory
-- ✅ Tiered access and quotas
-- ✅ Admin panel
-- ✅ Production deployment
+This infrastructure can power persona systems for:
 
-### Future Phases
-- **Phase 5**: Custom personas, integrations, collaboration
-- **Phase 6**: Proactive insights, multi-agent debates, voice interface
-- **Phase 7**: API-first with SDKs
+### Professional Services
+- **Investment Advisory**: VC, Angel, Hedge Fund, PE personas
+- **Career Coaching**: Executive coach, career counselor, interview prep
+- **Technical Consulting**: Architect, DevOps, security specialist
+- **Business Strategy**: Product manager, growth marketer, operations expert
+
+### Personal Development
+- **Wellness**: Therapist, nutritionist, fitness coach
+- **Creative**: Writer, designer, creative strategist
+- **Academic**: Tutor, research advisor, writing coach
+
+### Domain-Specific
+- **Legal**: Corporate lawyer, IP specialist, contract reviewer
+- **Medical**: Primary care, specialist, mental health (disclaimer: not for diagnosis)
+- **Real Estate**: Buyer's agent, seller's agent, investor advisor
+
+## 🌟 Example Implementations
+
+### Investor Personas (Complete)
+See [`investor-personas` branch](https://github.com/petercholford-ship-it/investor-persona-system/tree/investor-personas) for:
+- 4 fully-defined investor personas
+- Domain-specific build guide
+- Example conversations
+- Market analysis and positioning
+
+**Personas:**
+1. VC Partner (Morgan) - Early-stage focus, Series A/B expertise
+2. Angel Investor (Alex) - Seed/pre-seed, founder-focused
+3. Hedge Fund Analyst (Jordan) - Public markets, quantitative
+4. PE Associate (Taylor) - Buyouts, operational improvement
+
+### Your Implementation Here
+Create your own branch and link it here:
+- **[Your Domain] Personas** - [Link to your branch]
 
 ## 🤝 Contributing
 
-This is currently a personal project. Contributions welcome after MVP launch.
+Contributions welcome! To add a new persona domain:
+
+1. Fork this repository
+2. Create a new branch: `git checkout -b [domain]-personas`
+3. Define 2-4 personas using the template
+4. Customize build guide for your domain
+5. Submit a pull request
 
 ## 📝 License
 
 [To be determined]
 
-## 🙋 Support
-
-- **Build Issues**: Check [.claude/instructions.md](.claude/instructions.md)
-- **Feature Requests**: Open an issue (after repo is public)
-
 ## 🔗 Links
 
-- **Build Guide**: [docs/investor-persona-build-guide.md](docs/investor-persona-build-guide.md)
-- **Market Research**: See build guide for comparators (Character.AI, CustomGPT, Digital Ray)
+- **Generic Build Guide**: [docs/persona-system-build-guide.md](docs/persona-system-build-guide.md)
+- **Persona Template**: [templates/PERSONA_TEMPLATE.md](templates/PERSONA_TEMPLATE.md)
+- **Example Implementation**: [investor-personas branch](https://github.com/petercholford-ship-it/investor-persona-system/tree/investor-personas)
 - **Tech Stack Docs**:
   - [Next.js 14](https://nextjs.org/docs)
   - [Supabase](https://supabase.com/docs)
@@ -217,3 +281,5 @@ This is currently a personal project. Contributions welcome after MVP launch.
 ---
 
 **Built with Claude Code** | **Last Updated:** 2025-10-26
+
+**Repository:** https://github.com/petercholford-ship-it/investor-persona-system

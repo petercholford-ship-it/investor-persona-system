@@ -1,4 +1,4 @@
-# Claude Code Working Instructions - Investor Persona System
+# Claude Code Working Instructions - Multi-Persona AI System
 
 **Read this at the start of every session.**
 
@@ -33,9 +33,10 @@ In the face of complexity, don't react - research first.
 - Read existing code to understand patterns before proposing changes
 
 **Required Reading Order:**
-1. docs/investor-persona-build-guide.md - Full architecture and build plan
-2. templates/PHASE_*.md - Current phase requirements
-3. README.md - Project overview and status
+1. docs/persona-system-build-guide.md - Full architecture and build plan
+2. templates/PERSONA_TEMPLATE.md - How to define personas
+3. templates/PHASE_*.md - Current phase requirements
+4. README.md - Project overview and branch structure
 
 **2. Simplicity First (Automated Build)**
 
@@ -285,9 +286,15 @@ Types: `feat`, `fix`, `docs`, `test`, `refactor`, `chore`
 
 ---
 
-**Version:** 1.0 (Investor Persona System)
+**Version:** 1.0 (Multi-Persona AI System - Generic Infrastructure)
 **Updated:** 2025-10-26
 **Status:** Active - Read at start of every session
 
-**Build Guide Location:** docs/investor-persona-build-guide.md
+**Build Guide Location:** docs/persona-system-build-guide.md
+**Persona Template:** templates/PERSONA_TEMPLATE.md
 **Current Phase:** Check templates/CURRENT_PHASE.md
+
+**Branch Structure:**
+- `main`: Generic infrastructure (you are here)
+- `investor-personas`: Example implementation with investor personas
+- Create your own branch for your domain personas
